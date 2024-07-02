@@ -1,0 +1,46 @@
+Python , Java
+AWS
+Supervised Learning, Unsupervised Learning, NLP
+SQL
+
+
+pyspark, Spark nlp
+
+
+Proficient at building robust Machine Learning and NLP models.
+
+Data scientist with 4+ years of experience executing data-driven solutions to increase efficiency,accuracy and utility of
+of internal data processing.
+Experienced at creating data regression models, using predictive data modelling and analyzing data mining algorithm
+to deliver insights and implement action-oriented solutions to complex business.
+
+Experienced in Data extraction, performing Feature selection, building models using ML algorithm.
+Hands on experience and in provisioning virtual clusters under Amazon web services (AWS) cloud which includes services like EC2 instance, S3 cloud bucket.
+Expert in creating PL\SQL schema objects like packages, procedures,function,views using SQL developer
+Experienced working in waterfall as well as agile environments including the scrum process and using project management tools like Confluence/Rally and version control tools like Git
+
+
+FINSENDS:
+Constructed a NLP model to accomplish the named entitiy recognition by Analysing positive/negative sentiments of each sentence
+Objective for the model to analyze attitude from review to find out the like/dislike of the customer that helps customer to improve their business strategies
+Model was implemented using ML tools like pyspark,spark nlp and deployed in AWS cloud hosted in EC2 instances and S3 cloud bucket. 
+
+
+Nantional Australian Bank : FusionFabric Trade Inovation
+Involved in building predictive model using various machine learning tools to predict the transaction risk involved in processing the event
+Utilized analytical and technical expertise to provide insights and proposals to support business improvements
+Worked in partnership with clients to better comprehend their operational and strategic processing
+Used predictive analysis such as machine learning and data mining techniques to predict the transaction risks with an 95% accuracy rate
+Built model using Python flask REST API microservies and deployed in AWS cloud(EC2 instance). 
+
+Certifications:
+IBM professional certified on Machine Learning
+Certified AWS cloud practioner 
+
+
+
+----------------------------
+Data scientist with 4+ years of experience in executing data-driven solutions to increase efficiency, accuracy and utility of of internal data processing.
+Experienced at creating data regression models, using predictive data modelling and analyzing data mining algorithm to deliver insights and implement action-oriented solutions to complex business
+Expert in creating PL\SQL schema objects like packages, procedures, function, views using SQL developer
+Experienced working in waterfall as well as agile environments including the scrum process and using project management tools like Confluence/Rally and version control tools like Git

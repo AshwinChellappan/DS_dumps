@@ -1,0 +1,18 @@
+Summary:- "Career Objective" -(Highlighted technology)
+AWS (detailed stuff), Data modelling
+(Professional summary)
+
+Consultant- (same should reflect)
+4 points of work
+Wipro-
+2-3 points
+
+Keyskills- AWS,Pyspark..
+
+Projects
+Problem statement-Non technical about business
+Description:technical complexity of project
+
+
+include statistics
+Highlight key points, include github
