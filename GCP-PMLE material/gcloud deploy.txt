@@ -1,0 +1,11 @@
+gcloud init && git config --global credential.https://source.developers.google.com.helper gcloud.cmd
+git remote add google ssh://ashwinchellappannyl@gmail.com@source.developers.google.com:2022/p/lyrical-chassis-339002/r/github_ashwinchellappan_crop_prediction
+
+
+git clone https://github.com/AshwinChellappan/Crop_prediction.git
+
+Logs:
+$ gcloud app logs tail -s default
+
+Deploy:
+$gcloud app browse
