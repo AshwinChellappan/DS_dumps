@@ -1,0 +1,37 @@
+Production:
+
+sudo az login
+sudo az acr login   --name registryflktsprd001
+sudo docker build   -f Dockerfile -t flktechsupportgpt/backendapi:prod_backend_2703 .
+sudo docker images
+sudo docker tag   flktechsupportgpt/backendapi:prod_backend_2703   registryflktsprd001.azurecr.io/flktechsupportgpt/backendapi:prod_backend_2703
+sudo docker push   registryflktsprd001.azurecr.io/flktechsupportgpt/backendapi:prod_backend_2703
+
+
+
+sudo az login
+sudo az acr login   --name registryflktsprd001
+sudo docker build   -f Dockerfile -t flktechsupportgpt/frontendapi:prod_frontend_2703 .
+sudo docker images
+sudo docker tag   flktechsupportgpt/frontendapi:prod_frontend_2703   registryflktsprd001.azurecr.io/flktechsupportgpt/frontendapi:prod_frontend_2703
+sudo docker push   registryflktsprd001.azurecr.io/flktechsupportgpt/frontendapi:prod_frontend_2703
+
+
+
+uat:
+
+sudo az login
+sudo az acr login   --name registryflktsuat001
+sudo docker build   -f Dockerfile -t flktechsupportgpt/backendapi:uat_backend_2702 .
+sudo docker images
+sudo docker tag   flktechsupportgpt/backendapi:uat_backend_2702   registryflktsuat001.azurecr.io/flktechsupportgpt/backendapi:uat_backend_2702
+sudo docker push   registryflktsuat001.azurecr.io/flktechsupportgpt/backendapi:uat_backend_2702
+
+
+
+sudo az login
+sudo az acr login   --name registryflktsuat001
+sudo docker build   -f Dockerfile -t flktechsupportgpt/frontendapi:uat_frontend_2602 .
+sudo docker images
+sudo docker tag   flktechsupportgpt/frontendapi:uat_frontend_2602   registryflktsuat001.azurecr.io/flktechsupportgpt/frontendapi:uat_frontend_2602
+sudo docker push   registryflktsuat001.azurecr.io/flktechsupportgpt/frontendapi:uat_frontend_2602
