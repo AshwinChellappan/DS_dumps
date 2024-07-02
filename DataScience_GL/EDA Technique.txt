@@ -1,0 +1,141 @@
+#EDA(Data preprocessing and story telling)
+1.Univariate,Bivariate,Multivariate Analysis
+2.check skewness and kurtosis
+    skewness - Even after log transformation, can use reciprocal transformation
+3.Data Anamolies
+    1.Check for duplicate values
+    2.Missing value treatment
+    3.Handling Outliers
+4.Transformation (Z-score,Minmax scaling)
+5.Handling imbalance data set
+6.Multicollinearity- VIF method -Threshold as 10 and remove variables above than 10
+
+1.EDA(Data preprocessing and story telling)
+2.Model building
+3.Feature Transformation-(Feature selection (REF))
+    Feature selection-If variance is zero we can remove the variable
+4.Model Validation
+5.Model Evaluation-(Cross validation -KFold)
+6.Hyper parameter tuning (Grid Search)
+    Can give L1_ratio, alpha as a parameter in Elastic net
+7.Picking best model
+8.Final submission
+
+#To avoid overfitting in Linear regression, compare score of Train RMSE and Test RMSE should be similar
+
+
+------------------------------------------------------------------
+1)Converting the data type correctly
+# convert the columns that are wrongly specified as numeric to object type 
+# convert the column male to object type
+df_heart['male'] = df_heart['male'].astype(object)
+
+2)To get Total and percentage of Empty data
+# isnull().sum(): calculate the null values in each column for dataset
+# sort_values(ascending=False): sort the values in descending order of values
+total = df_heart.isnull().sum().sort_values(ascending=False)
+
+# isnull().sum(): calculate the null values in each column for dataset
+# isnull().count(): calculate the count values in each column for dataset
+# sort_values(ascending=False): sort the values in descending order of values
+percent = (df_heart.isnull().sum()/df_heart.isnull().count()).sort_values(ascending=False)
+
+# concat(): append dataframes
+# axis=1: append by column
+# keys: specify column name
+missing_data = pd.concat([total, percent], axis=1, keys=['Total', 'Percent'])
+
+3)Dropping the null data
+df_heart = df_heart.dropna(subset = ['education', 'BPMeds', 'totChol','cigsPerDay','BMI','heartRate'])
+
+4)Filling the empty data with median
+df_heart['glucose'] = df_heart['glucose'].fillna(df_heart['glucose'].median())
+
+5)For getting features
+df_num=df_heart.iloc[ :, [10,11]]
+
+6) One of method for scaling
+num_scaled=df_num.apply(lambda rec:rec-rec.mean()/rec.std(),axis=0)
+
+7)To get Categorical variable
+df_cat = df_heart.select_dtypes(include="object")
+X = pd.get_dummies(df_cat, drop_first=True)
+
+
+8)Alternate for getDummies and Onehotencoding
+encoder = ce.BinaryEncoder(cols=['Geography','Gender'])
+df = encoder.fit_transform(data)
+
+9)For removing hypens ,so slicing the column
+data['Unnamed: 17']=data['Unnamed: 17'].astype(str).str[:4].astype('int', copy=True, errors= 'ignore')
+
+
+10) For making first row as header
+data=data.rename(columns=data.iloc[0]).drop(data.index[0])
+
+11)For replacing column with characters
+train_df.rename(columns = lambda x: x.replace('_', ' '), inplace=True)
+
+12)Label Encoding
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+df['Species']=le.fit_transform(df['Species'])
+
+13)Map
+train['Is_Active']=train['Is_Active'].map({'Yes':1,'No':0,})
+
+
+14)Handling Outlier using IQR method
+Q1=df.quantile(0.25)
+Q3=df.quantile(0.75)
+IQR=Q3-Q1
+print(Q1)
+print(Q3)
+print(IQR)
+df = df[~((df < (Q1 - 1.5 * IQR)) |(df > (Q3 + 1.5 * IQR))).any(axis=1)]
+df.shape
+
+15)Calculating Variance Inflation factor
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+vif = pd.DataFrame()
+vif["Features"] = df.columns
+vif["VIF"] = [variance_inflation_factor(df.values, i) for i in range(df.shape[1])]
+print(vif)
+
+16)Another Method ending
+c=df.label.astype('category')
+targets = dict(enumerate(c.cat.categories))
+df['target']=c.cat.codes
+
+17)Splitting Data column into Two features
+df_employee[['FirstName','Second Name']]=df_employee.Name.str.split(expand=True)
+
+18) Renaming column
+stock_data=stock_data.rename(columns={'Unnamed: 48':'timestamp'})
+
+19) Splitting a column into two
+df[['First','Last']] = df.Name.str.split(" ",expand=True,)
+
+20)For getting date format
+df["Premiere"] = pd.to_datetime(df['Premiere'])
+
+
+
+21)Visualization technique
+categorical variable
+order=list(df['Language'].value_counts()[:10].keys())
+sns.countplot('Language',data=df,order=order)
+
+Numerical Variable
+numbers=df.loc[:,['Runtime','IMDB Score']]
+numbers.hist(alpha=0.7)
+
+Timestamp
+df['Premiere'].value_counts().sort_index().plot(figsize=(23,5))
+
+
+22)Splitting column into two
+df_employee[['FirstName','LatstName']]=df_employee.Name.str.split(expand=True)
+
+23)Mapping column name
+df_store['Store']=df_store['Store'].map({'A':'Store_A','B':'Store_B','C':'Store_C','D':'Store_D'})
